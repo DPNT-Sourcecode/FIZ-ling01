@@ -6,7 +6,13 @@ namespace BeFaster.App.Solutions.FIZ
     {
         public static string FizzBuzz(int number)
         {
-            throw new SolutionNotImplementedException();
+            NumberElement e = new NumberElement(number);
+            e.Accept(new FizzVisitor());
+            e.Accept(new BuzzVisitor());
+            e.Accept(new DeluxeVisitor());
+            e.Accept(new DefaultVisitor());
+
+            return e.Msg;
         }
     }
 }
